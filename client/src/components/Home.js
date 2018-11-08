@@ -31,6 +31,10 @@ class Home extends Component {
 	  data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
 	  
 	  axios.post( '/api/profile/profile-img-upload', data, {
+		  onUploadProgress: ProgressEvent => {
+			// console.log('upload progerss: '+ Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + '%')
+			this.setState.percent = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100)
+		},
 		  headers: {
 		   'accept': 'application/json',
 		   'Accept-Language': 'en-US,en;q=0.8',
@@ -38,7 +42,7 @@ class Home extends Component {
 		  }
 		 })
 		  .then( ( response ) => {
-	  
+	//   {this.setState.percent = }
 	  if ( 200 === response.status ) {
 			// If file size is larger than expected.
 			if( response.data.error ) {
@@ -84,7 +88,7 @@ class Home extends Component {
 	};
 
 	render() {
-		console.log(this.state);
+		console.log(this.state.percent);
 		return (<div className="container">
 				{/* For Alert box*/}
 				<div id="oc-alert-container"></div>		
@@ -99,9 +103,9 @@ class Home extends Component {
 						<input type="file" onChange={this.singleFileChangedHandler}/>
 					<div className="mt-5">
 						<button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload!</button>
-						{/* <div>
+						<div>
 						<Line percent={this.state.percent}  strokeWidth="4" strokeColor="#D3D3D3" />
-						</div>							 */}
+						</div>							
 					</div>
 					</div>
 				</div>

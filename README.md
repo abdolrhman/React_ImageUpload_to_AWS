@@ -9,3 +9,5 @@
 
 - to run both the client(React) and the server (express)
 
+
+> algorthim for progress bar "Math.round(ProgressEvent.loaded / ProgressEvent.total * 100)"
