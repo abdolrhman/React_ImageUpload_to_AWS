@@ -1,8 +1,11 @@
-# A React Js and Node Js Boilerplate
+# React_ImageUpload_to_AWS
+
 ## Installation Instructions
 
-Install nodemon and create-react-app globally using below command:
+#### npm i ... in Main folder and In client Folder
 
-`$ npm i -D nodemon`
 
-`npm i -g create-react-app`
+> start project with .. npm run dev
+
+- to run both the client(React) and the server (express)
+
