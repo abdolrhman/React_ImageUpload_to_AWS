@@ -14,11 +14,11 @@ const router = express.Router();
  * PROFILE IMAGE STORING STARTS
  */
 const s3 = new aws.S3({
-    accessKeyId: 'AKIAJWIKCBNGPHNMZFOQ',
-    secretAccessKey: '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',
-    Bucket: 'testbetahub',
-    region: 'us-east-1',    
+	Bucket: 'betahub',
+	accessKeyId: 'AKIAJJXEZIQHFFIYN6MQ',
+	secretAccessKey: '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',
 });
+
 
 /**
  * Single Upload
@@ -26,7 +26,7 @@ const s3 = new aws.S3({
 const profileImgUpload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'onclick',
+        bucket: 'betahub',
         acl: 'public-read',
         key: function (req, file, cb) {
             cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
