@@ -15,8 +15,8 @@ const router = express.Router();
  */
 const s3 = new aws.S3({
 	Bucket: 'betahub',
-	accessKeyId: 'AKIAJJXEZIQHFFIYN6MQ',
-	secretAccessKey: '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',
+	accessKeyId: 'xxx',
+	secretAccessKey: 'xxx',
 });
 
 
